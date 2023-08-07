@@ -3,7 +3,7 @@ import { useReducer, useEffect } from "react";
 import notesReducer from "./reducers/notesReducer.ts";
 import NoteCard from "./components/NoteCard.tsx";
 import "./App.css";
-import { Note, ReducerAction, REDUCER_ACTION_TYPE } from "./types";
+import { Note, REDUCER_ACTION_TYPE } from "./types";
 
 function App() {
   const [notes, dispatch] = useReducer(notesReducer, null, loadNotes);

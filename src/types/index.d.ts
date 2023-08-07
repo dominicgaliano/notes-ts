@@ -5,7 +5,7 @@ export type Note = {
   content: string;
 };
 
-export enum REDUCER_ACTION_TYPE {
+declare enum REDUCER_ACTION_TYPE {
   ADD_NOTE,
   EDIT_NOTE,
   DELETE_NOTE,
