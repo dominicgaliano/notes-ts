@@ -1,16 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-
-type Note = {
-  id: string;
-  title: string;
-  content: string;
-};
-
-type DispatchAction = {
-  type: string;
-  note?: Note;
-  id: string;
-};
+import { Note, DispatchAction } from "../types";
 
 export default function notesReducer(notes: Note[], action: DispatchAction) {
   switch (action.type) {
