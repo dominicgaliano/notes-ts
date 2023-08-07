@@ -3,7 +3,7 @@ import { FaTrash, FaPencil, FaCheck, FaX } from "react-icons/fa6";
 import { Note } from "../types";
 import { handleEditNote, handleDeleteNote } from "../utils";
 
-export default function NoteCard({ note, dispatch }) {
+export default function NoteCard({ note, dispatch }): React.ReactElement {
   const [isEditing, setIsEditing] = useState(false);
   const [prevNote, setPrevNote] = useState();
 

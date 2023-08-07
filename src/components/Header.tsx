@@ -1,6 +1,6 @@
 import { handleAddNote, handleDeleteAllNotes } from "../utils";
 
-export function Header({ notes, dispatch }) {
+export function Header({ notes, dispatch }): React.ReactElement {
   return (
     <div className="notes-header">
       <button onClick={() => handleAddNote(dispatch)}>New Note</button>
