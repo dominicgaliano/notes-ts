@@ -5,8 +5,15 @@ export type Note = {
   content: string;
 };
 
-type DispatchAction = {
-  type: string;
+export enum REDUCER_ACTION_TYPE {
+  ADD_NOTE,
+  EDIT_NOTE,
+  DELETE_NOTE,
+  DELETE_ALL,
+}
+
+export type ReducerAction = {
+  type: REDUCER_ACTION_TYPE;
   note?: Note;
-  id: string;
+  id?: string;
 };

@@ -1,9 +1,12 @@
 import { v4 as uuidv4 } from "uuid";
-import { Note, DispatchAction } from "../types";
+import { Note, REDUCER_ACTION_TYPE, ReducerAction } from "../types";
 
-export default function notesReducer(notes: Note[], action: DispatchAction) {
+export default function notesReducer(
+  notes: Note[],
+  action: ReducerAction
+): Note[] {
   switch (action.type) {
-    case "ADD_NOTE": {
+    case REDUCER_ACTION_TYPE.ADD_NOTE: {
       const newNote: Note = {
         id: uuidv4(),
         title: "New Note",
@@ -12,7 +15,7 @@ export default function notesReducer(notes: Note[], action: DispatchAction) {
 
       return [...notes, newNote];
     }
-    case "EDIT_NOTE": {
+    case REDUCER_ACTION_TYPE.EDIT_NOTE: {
       // type check
       if (!action.note) {
         throw Error("No note passed in dispatch");
@@ -20,16 +23,16 @@ export default function notesReducer(notes: Note[], action: DispatchAction) {
 
       return notes.map((note: Note) => {
         if (note.id === action.note!.id) {
-          return action.note;
+          return action.note!;
         } else {
           return note;
         }
       });
     }
-    case "DELETE_NOTE": {
+    case REDUCER_ACTION_TYPE.DELETE_NOTE: {
       return notes.filter((note) => note.id !== action.id);
     }
-    case "DELETE_ALL": {
+    case REDUCER_ACTION_TYPE.DELETE_ALL: {
       return [];
     }
     default: {

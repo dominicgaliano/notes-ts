@@ -3,6 +3,7 @@ import { useReducer, useEffect } from "react";
 import notesReducer from "./reducers/notesReducer.ts";
 import NoteCard from "./components/NoteCard.tsx";
 import "./App.css";
+import { Note, ReducerAction, REDUCER_ACTION_TYPE } from "./types";
 
 function App() {
   const [notes, dispatch] = useReducer(notesReducer, null, loadNotes);
@@ -38,26 +39,37 @@ function App() {
 
   // TODO: Figure out how/best way to move these functions to another file
   function loadNotes() {
-    const loadedNotes = JSON.parse(localStorage.getItem("notes"));
-    return loadedNotes || [];
+    const data = localStorage.getItem("notes");
+
+    if (!data) {
+      return [];
+    }
+
+    try {
+      const loadedNotes: Note[] = JSON.parse(data);
+      return loadedNotes;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
   }
 
   function handleAddNote() {
     dispatch({
-      type: "ADD_NOTE",
+      type: REDUCER_ACTION_TYPE.ADD_NOTE,
     });
   }
 
-  function handleEditNote(editedNote) {
+  function handleEditNote(editedNote: Note) {
     dispatch({
-      type: "EDIT_NOTE",
+      type: REDUCER_ACTION_TYPE.EDIT_NOTE,
       note: editedNote,
     });
   }
 
-  function handleDeleteNote(noteId) {
+  function handleDeleteNote(noteId: string) {
     dispatch({
-      type: "DELETE_NOTE",
+      type: REDUCER_ACTION_TYPE.DELETE_NOTE,
       id: noteId,
     });
   }
@@ -69,7 +81,7 @@ function App() {
       )
     ) {
       dispatch({
-        type: "DELETE_ALL",
+        type: REDUCER_ACTION_TYPE.DELETE_ALL,
       });
     }
   }
