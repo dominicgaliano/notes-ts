@@ -1,6 +1,12 @@
 import { handleAddNote, handleDeleteAllNotes } from "../utils";
+import { Note, ReducerAction } from "../types";
 
-export function Header({ notes, dispatch }): React.ReactElement {
+type Props = {
+  notes: Note[];
+  dispatch: React.Dispatch<ReducerAction>;
+};
+
+export function Header({ notes, dispatch }: Props): React.ReactElement {
   return (
     <div className="notes-header">
       <button onClick={() => handleAddNote(dispatch)}>New Note</button>
