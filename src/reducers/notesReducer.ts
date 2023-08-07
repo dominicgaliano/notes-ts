@@ -3,7 +3,7 @@ import { Note, DispatchAction } from "../types";
 
 export default function notesReducer(notes: Note[], action: DispatchAction) {
   switch (action.type) {
-    case "added": {
+    case "ADD_NOTE": {
       const newNote: Note = {
         id: uuidv4(),
         title: "New Note",
@@ -12,7 +12,7 @@ export default function notesReducer(notes: Note[], action: DispatchAction) {
 
       return [...notes, newNote];
     }
-    case "edited": {
+    case "EDIT_NOTE": {
       // type check
       if (!action.note) {
         throw Error("No note passed in dispatch");
@@ -26,10 +26,10 @@ export default function notesReducer(notes: Note[], action: DispatchAction) {
         }
       });
     }
-    case "deleted": {
+    case "DELETE_NOTE": {
       return notes.filter((note) => note.id !== action.id);
     }
-    case "clearedAll": {
+    case "DELETE_ALL": {
       return [];
     }
     default: {
