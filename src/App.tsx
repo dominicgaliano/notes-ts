@@ -1,7 +1,7 @@
 import { useReducer, useEffect } from "react";
-import notesReducer from "./notesReducer.ts";
+import notesReducer from "./assets/notesReducer.ts";
 import { v4 as uuidv4 } from "uuid";
-import NoteCard from "./NoteCard.tsx";
+import NoteCard from "./components/NoteCard.tsx";
 import "./App.css";
 
 function App() {
