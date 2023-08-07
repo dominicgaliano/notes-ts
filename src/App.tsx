@@ -44,20 +44,20 @@ function App() {
 
   function handleAddNote() {
     dispatch({
-      type: "added",
+      type: "ADD_NOTE",
     });
   }
 
   function handleEditNote(editedNote) {
     dispatch({
-      type: "edited",
+      type: "EDIT_NOTE",
       note: editedNote,
     });
   }
 
   function handleDeleteNote(noteId) {
     dispatch({
-      type: "deleted",
+      type: "DELETE_NOTE",
       id: noteId,
     });
   }
@@ -69,7 +69,7 @@ function App() {
       )
     ) {
       dispatch({
-        type: "clearedAll",
+        type: "DELETE_ALL",
       });
     }
   }
