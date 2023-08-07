@@ -1,5 +1,6 @@
+import { Header } from "./components/Header.tsx";
 import { useReducer, useEffect } from "react";
-import notesReducer from "./assets/notesReducer.ts";
+import notesReducer from "./reducers/notesReducer.ts";
 import NoteCard from "./components/NoteCard.tsx";
 import "./App.css";
 
@@ -13,14 +14,10 @@ function App() {
 
   return (
     <div>
-      <div className="notes-header">
-        <button onClick={handleAddNote}>New Note</button>
-        {notes.length > 0 ? (
-          <button onClick={handleDeleteAllNotes}> Clear All</button>
-        ) : (
-          <></>
-        )}
-      </div>
+      <Header
+        handleAddNote={handleAddNote}
+        handleDeleteAllNotes={handleDeleteAllNotes}
+      />
       <div>
         <ul className="notes-list">
           {notes.map((note) => {
