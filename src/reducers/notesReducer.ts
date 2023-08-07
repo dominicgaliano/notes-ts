@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
-import { Note, REDUCER_ACTION_TYPE, ReducerAction } from "../types";
+import { Note, ReducerAction } from "../types";
+import { REDUCER_ACTION_TYPE } from "../utils";
 
 export default function notesReducer(
   notes: Note[],

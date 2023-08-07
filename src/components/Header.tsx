@@ -1,5 +1,3 @@
-import React from "react";
-
 export function Header({ notes, handleAddNote, handleDeleteAllNotes }) {
   return (
     <div className="notes-header">
