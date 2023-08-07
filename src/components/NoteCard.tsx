@@ -1,13 +1,9 @@
 import { useState } from "react";
 import { FaTrash, FaPencil, FaCheck, FaX } from "react-icons/fa6";
-import { Note, ReducerAction } from "../types";
+import { Note } from "../types";
+import { handleEditNote, handleDeleteNote } from "../utils";
 
-export default function NoteCard({
-  note,
-  dispatch,
-  handleDeleteNote,
-  handleEditNote,
-}) {
+export default function NoteCard({ note, dispatch }) {
   const [isEditing, setIsEditing] = useState(false);
   const [prevNote, setPrevNote] = useState();
 

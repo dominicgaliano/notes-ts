@@ -1,9 +1,6 @@
-export function Header({
-  notes,
-  dispatch,
-  handleAddNote,
-  handleDeleteAllNotes,
-}) {
+import { handleAddNote, handleDeleteAllNotes } from "../utils";
+
+export function Header({ notes, dispatch }) {
   return (
     <div className="notes-header">
       <button onClick={() => handleAddNote(dispatch)}>New Note</button>
