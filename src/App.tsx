@@ -15,6 +15,7 @@ function App() {
   return (
     <div>
       <Header
+        notes={notes}
         handleAddNote={handleAddNote}
         handleDeleteAllNotes={handleDeleteAllNotes}
       />

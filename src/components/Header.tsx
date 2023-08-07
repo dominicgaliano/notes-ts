@@ -1,5 +1,6 @@
 import React from "react";
-export function Header({ handleAddNote, handleDeleteAllNotes }) {
+
+export function Header({ notes, handleAddNote, handleDeleteAllNotes }) {
   return (
     <div className="notes-header">
       <button onClick={handleAddNote}>New Note</button>
