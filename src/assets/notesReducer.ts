@@ -1,15 +1,21 @@
 import { v4 as uuidv4 } from "uuid";
 
-type note = {
+type Note = {
   id: string;
   title: string;
   content: string;
 };
 
-export default function notesReducer(notes: [note], action) {
+type DispatchAction = {
+  type: string;
+  note?: Note;
+  id: string;
+};
+
+export default function notesReducer(notes: Note[], action: DispatchAction) {
   switch (action.type) {
     case "added": {
-      const newNote: note = {
+      const newNote: Note = {
         id: uuidv4(),
         title: "New Note",
         content: "Description",
@@ -18,8 +24,13 @@ export default function notesReducer(notes: [note], action) {
       return [...notes, newNote];
     }
     case "edited": {
-      return notes.map((note: note) => {
-        if (note.id === action.note.id) {
+      // type check
+      if (!action.note) {
+        throw Error("No note passed in dispatch");
+      }
+
+      return notes.map((note: Note) => {
+        if (note.id === action.note!.id) {
           return action.note;
         } else {
           return note;
@@ -33,7 +44,7 @@ export default function notesReducer(notes: [note], action) {
       return [];
     }
     default: {
-      throw Error("Unknown action: ", action.type);
+      throw Error(`Unknown action: ${action.type}`);
     }
   }
 }

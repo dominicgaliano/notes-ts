@@ -5,7 +5,7 @@ export default function NoteCard({ note, handleDeleteNote, handleEditNote }) {
   const [isEditing, setIsEditing] = useState(false);
   const [prevNote, setPrevNote] = useState();
 
-  function noteIsValid(note) {
+  function noteIsValid(note): boolean {
     if (!note.title || !note.content) {
       return false;
     }
