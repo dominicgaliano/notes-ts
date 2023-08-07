@@ -12,8 +12,8 @@ export default function NoteCard({
   note,
   dispatch,
 }: Props): React.ReactElement {
-  const [isEditing, setIsEditing] = useState(false);
-  const [prevNote, setPrevNote] = useState();
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [prevNote, setPrevNote] = useState<Note>();
 
   function noteIsValid(note: Note): boolean {
     if (!note.title || !note.content) {
@@ -76,7 +76,7 @@ export default function NoteCard({
           </button>
           <button
             onClick={() => {
-              handleEditNote(dispatch, prevNote);
+              handleEditNote(dispatch, prevNote!);
               setIsEditing(false);
             }}
           >
