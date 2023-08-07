@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { FaTrash, FaPencil, FaCheck, FaX } from "react-icons/fa6";
+import { Note, ReducerAction } from "../types";
 
-export default function NoteCard({ note, handleDeleteNote, handleEditNote }) {
+export default function NoteCard({
+  note,
+  dispatch,
+  handleDeleteNote,
+  handleEditNote,
+}) {
   const [isEditing, setIsEditing] = useState(false);
   const [prevNote, setPrevNote] = useState();
 
-  function noteIsValid(note): boolean {
+  function noteIsValid(note: Note): boolean {
     if (!note.title || !note.content) {
       return false;
     }
@@ -29,7 +35,7 @@ export default function NoteCard({ note, handleDeleteNote, handleEditNote }) {
                 type="text"
                 value={note.title}
                 onChange={(e) =>
-                  handleEditNote({
+                  handleEditNote(dispatch, {
                     ...note,
                     title: e.target.value,
                   })
@@ -42,7 +48,7 @@ export default function NoteCard({ note, handleDeleteNote, handleEditNote }) {
                 type="text"
                 value={note.content}
                 onChange={(e) =>
-                  handleEditNote({
+                  handleEditNote(dispatch, {
                     ...note,
                     content: e.target.value,
                   })
@@ -66,7 +72,7 @@ export default function NoteCard({ note, handleDeleteNote, handleEditNote }) {
           </button>
           <button
             onClick={() => {
-              handleEditNote(prevNote);
+              handleEditNote(dispatch, prevNote);
               setIsEditing(false);
             }}
           >
@@ -87,7 +93,7 @@ export default function NoteCard({ note, handleDeleteNote, handleEditNote }) {
           >
             <FaPencil />
           </button>
-          <button onClick={() => handleDeleteNote(note.id)}>
+          <button onClick={() => handleDeleteNote(dispatch, note.id)}>
             <FaTrash />
           </button>
         </div>

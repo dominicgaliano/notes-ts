@@ -3,8 +3,13 @@ import { useReducer, useEffect } from "react";
 import notesReducer from "./reducers/notesReducer.ts";
 import NoteCard from "./components/NoteCard.tsx";
 import "./App.css";
-import { Note } from "./types";
-import { REDUCER_ACTION_TYPE } from "./utils";
+import {
+  loadNotes,
+  handleAddNote,
+  handleEditNote,
+  handleDeleteNote,
+  handleDeleteAllNotes,
+} from "./utils";
 
 function App() {
   const [notes, dispatch] = useReducer(notesReducer, null, loadNotes);
@@ -18,6 +23,7 @@ function App() {
     <div>
       <Header
         notes={notes}
+        dispatch={dispatch}
         handleAddNote={handleAddNote}
         handleDeleteAllNotes={handleDeleteAllNotes}
       />
@@ -27,6 +33,7 @@ function App() {
             return (
               <NoteCard
                 note={note}
+                dispatch={dispatch}
                 handleDeleteNote={handleDeleteNote}
                 handleEditNote={handleEditNote}
                 key={note.id}
@@ -37,55 +44,6 @@ function App() {
       </div>
     </div>
   );
-
-  // TODO: Figure out how/best way to move these functions to another file
-  function loadNotes(): Note[] {
-    const data = localStorage.getItem("notes");
-
-    if (!data) {
-      return [];
-    }
-
-    try {
-      const loadedNotes: Note[] = JSON.parse(data);
-      return loadedNotes;
-    } catch (error) {
-      console.log(error);
-      return [];
-    }
-  }
-
-  function handleAddNote() {
-    dispatch({
-      type: REDUCER_ACTION_TYPE.ADD_NOTE,
-    });
-  }
-
-  function handleEditNote(editedNote: Note) {
-    dispatch({
-      type: REDUCER_ACTION_TYPE.EDIT_NOTE,
-      note: editedNote,
-    });
-  }
-
-  function handleDeleteNote(noteId: string) {
-    dispatch({
-      type: REDUCER_ACTION_TYPE.DELETE_NOTE,
-      id: noteId,
-    });
-  }
-
-  function handleDeleteAllNotes() {
-    if (
-      window.confirm(
-        "Are you sure you want to clear all?\nThis action cannot be undone"
-      )
-    ) {
-      dispatch({
-        type: REDUCER_ACTION_TYPE.DELETE_ALL,
-      });
-    }
-  }
 }
 
 export default App;

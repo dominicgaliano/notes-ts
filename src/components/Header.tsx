@@ -1,9 +1,17 @@
-export function Header({ notes, handleAddNote, handleDeleteAllNotes }) {
+export function Header({
+  notes,
+  dispatch,
+  handleAddNote,
+  handleDeleteAllNotes,
+}) {
   return (
     <div className="notes-header">
-      <button onClick={handleAddNote}>New Note</button>
+      <button onClick={() => handleAddNote(dispatch)}>New Note</button>
       {notes.length > 0 ? (
-        <button onClick={handleDeleteAllNotes}> Clear All</button>
+        <button onClick={() => handleDeleteAllNotes(dispatch)}>
+          {" "}
+          Clear All
+        </button>
       ) : (
         <></>
       )}
