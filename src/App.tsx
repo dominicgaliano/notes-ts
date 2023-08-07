@@ -36,6 +36,7 @@ function App() {
     </div>
   );
 
+  // TODO: Figure out how/best way to move these functions to another file
   function loadNotes() {
     const loadedNotes = JSON.parse(localStorage.getItem("notes"));
     return loadedNotes || [];
