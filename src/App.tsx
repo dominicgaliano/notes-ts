@@ -38,7 +38,7 @@ function App() {
   );
 
   // TODO: Figure out how/best way to move these functions to another file
-  function loadNotes() {
+  function loadNotes(): Note[] {
     const data = localStorage.getItem("notes");
 
     if (!data) {
