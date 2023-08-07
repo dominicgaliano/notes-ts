@@ -1,6 +1,5 @@
 import { useReducer, useEffect } from "react";
 import notesReducer from "./assets/notesReducer.ts";
-import { v4 as uuidv4 } from "uuid";
 import NoteCard from "./components/NoteCard.tsx";
 import "./App.css";
 
@@ -47,7 +46,6 @@ function App() {
   function handleAddNote() {
     dispatch({
       type: "added",
-      id: uuidv4(),
     });
   }
 

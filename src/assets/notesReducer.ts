@@ -1,8 +1,16 @@
-export default function notesReducer(notes, action) {
+import { v4 as uuidv4 } from "uuid";
+
+type note = {
+  id: string;
+  title: string;
+  content: string;
+};
+
+export default function notesReducer(notes: [note], action) {
   switch (action.type) {
     case "added": {
-      const newNote = {
-        id: action.id,
+      const newNote: note = {
+        id: uuidv4(),
         title: "New Note",
         content: "Description",
       };
@@ -10,7 +18,7 @@ export default function notesReducer(notes, action) {
       return [...notes, newNote];
     }
     case "edited": {
-      return notes.map((note) => {
+      return notes.map((note: note) => {
         if (note.id === action.note.id) {
           return action.note;
         } else {
