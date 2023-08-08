@@ -1,0 +1,12 @@
+.header {
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.header-new-note {
+    margin-right: 0.75rem;
+}
+
+button {
+    display: inline-block;
+}
