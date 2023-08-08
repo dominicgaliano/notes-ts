@@ -9,3 +9,8 @@ npm run dev
 npm run build
 npm run preview
 ```
+
+TODO:
+
+- Work on card CSS so that the app looks presentable
+- Move on to back-end
