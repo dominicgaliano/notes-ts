@@ -1,6 +1,10 @@
 .card {
     list-style-type: none;
+    width: fit-content; /* Placeholder */
+    height: fit-content; /* Placeholder */
     margin: 0;
     padding: 0;
-    background-color: grey;
+    background-color: grey; /* Placeholder */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
 }
