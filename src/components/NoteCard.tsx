@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaTrash, FaPencil, FaCheck, FaX } from "react-icons/fa6";
 import { handleEditNote, handleDeleteNote } from "../utils";
 import { Note, ReducerAction } from "../types";
+import "./NoteCard.css";
 
 type Props = {
   note: Note;
@@ -31,9 +32,9 @@ export default function NoteCard({
       }}
     >
       {isEditing ? (
-        <div>
+        <>
           <form>
-            <i>{note.id}</i>
+            {/* <i>{note.id}</i> */}
             <label>
               <input
                 type="text"
@@ -82,10 +83,10 @@ export default function NoteCard({
           >
             <FaX />
           </button>
-        </div>
+        </>
       ) : (
-        <div>
-          <i>{note.id}</i>
+        <>
+          {/* <i>{note.id}</i> */}
           <h1>{note.title}</h1>
           <p>{note.content}</p>
           <hr></hr>
@@ -100,7 +101,7 @@ export default function NoteCard({
           <button onClick={() => handleDeleteNote(dispatch, note.id)}>
             <FaTrash />
           </button>
-        </div>
+        </>
       )}
     </li>
   );

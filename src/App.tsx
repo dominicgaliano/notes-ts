@@ -16,7 +16,7 @@ function App(): React.ReactElement {
   return (
     <div>
       <Header notes={notes} dispatch={dispatch} />
-      <div>
+      <div className="body">
         <ul className="notes-list">
           {notes.map((note) => {
             return <NoteCard note={note} dispatch={dispatch} key={note.id} />;
