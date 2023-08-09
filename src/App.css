@@ -5,5 +5,10 @@
 
 .notes-list {
   margin: 0;
-  padding: 0;
+  padding-top: var(--default-padding);
+  padding-left: 0;
+}
+
+hr {
+  width: calc(100% - 2*var(--default-padding));
 }

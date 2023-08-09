@@ -63,26 +63,28 @@ export default function NoteCard({
             </label>
           </form>
           <hr></hr>
-          <button
-            onClick={() => {
-              if (noteIsValid(note)) {
+          <div className="card-buttons">
+            <button
+              onClick={() => {
+                if (noteIsValid(note)) {
+                  setIsEditing(false);
+                  return;
+                }
+                // note missing fields
+                alert("Note is missing one or more necessary fields.");
+              }}
+            >
+              <FaCheck />
+            </button>
+            <button
+              onClick={() => {
+                handleEditNote(dispatch, prevNote!);
                 setIsEditing(false);
-                return;
-              }
-              // note missing fields
-              alert("Note is missing one or more necessary fields.");
-            }}
-          >
-            <FaCheck />
-          </button>
-          <button
-            onClick={() => {
-              handleEditNote(dispatch, prevNote!);
-              setIsEditing(false);
-            }}
-          >
-            <FaX />
-          </button>
+              }}
+            >
+              <FaX />
+            </button>
+          </div>
         </>
       ) : (
         <>
@@ -90,17 +92,19 @@ export default function NoteCard({
           <h1>{note.title}</h1>
           <p>{note.content}</p>
           <hr></hr>
-          <button
-            onClick={() => {
-              setPrevNote(note);
-              setIsEditing(true);
-            }}
-          >
-            <FaPencil />
-          </button>
-          <button onClick={() => handleDeleteNote(dispatch, note.id)}>
-            <FaTrash />
-          </button>
+          <div className="card-buttons">
+            <button
+              onClick={() => {
+                setPrevNote(note);
+                setIsEditing(true);
+              }}
+            >
+              <FaPencil />
+            </button>
+            <button onClick={() => handleDeleteNote(dispatch, note.id)}>
+              <FaTrash />
+            </button>
+          </div>
         </>
       )}
     </li>

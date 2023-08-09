@@ -2,9 +2,15 @@
     list-style-type: none;
     width: fit-content; /* Placeholder */
     height: fit-content; /* Placeholder */
-    margin: 0;
-    padding: 0;
+    margin: var(--default-padding);
+    padding: var(--default-padding);
     background-color: grey; /* Placeholder */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-radius: 5px;
+    display: inline-block;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-evenly;
 }

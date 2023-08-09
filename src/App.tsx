@@ -16,6 +16,7 @@ function App(): React.ReactElement {
   return (
     <div>
       <Header notes={notes} dispatch={dispatch} />
+      <hr></hr>
       <div className="body">
         <ul className="notes-list">
           {notes.map((note) => {
