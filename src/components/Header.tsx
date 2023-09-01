@@ -10,14 +10,14 @@ type Props = {
 export function Header({ notes, dispatch }: Props): React.ReactElement {
   return (
     <header>
-      <button
-        className="header-new-note"
-        onClick={() => handleAddNote(dispatch)}
-      >
+      <button className="header--item" onClick={() => handleAddNote(dispatch)}>
         New Note
       </button>
       {notes.length > 0 ? (
-        <button onClick={() => handleDeleteAllNotes(dispatch)}>
+        <button
+          className="header--item"
+          onClick={() => handleDeleteAllNotes(dispatch)}
+        >
           {" "}
           Clear All
         </button>
