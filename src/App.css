@@ -1,9 +1,11 @@
-.notes-list {
-  margin: 0;
-  padding-top: var(--default-padding);
-  padding-left: 0;
-}
-
-hr {
-  width: calc(100% - 2*var(--default-padding));
+.card-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 10px;
+  align-items: baseline;
+  
+  max-width: 900px;
+  margin: 0 auto;
 }

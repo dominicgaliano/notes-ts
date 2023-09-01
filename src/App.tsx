@@ -16,13 +16,13 @@ function App(): React.ReactElement {
   return (
     <div>
       <Header notes={notes} dispatch={dispatch} />
-      <div className="body">
-        <ul className="notes-list">
+      <main>
+        <ul className="card-list">
           {notes.map((note) => {
             return <NoteCard note={note} dispatch={dispatch} key={note.id} />;
           })}
         </ul>
-      </div>
+      </main>
     </div>
   );
 }
