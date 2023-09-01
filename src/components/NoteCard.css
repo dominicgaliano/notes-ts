@@ -4,7 +4,7 @@
     height: fit-content; /* Placeholder */
     margin: var(--default-padding);
     padding: var(--default-padding);
-    background-color: grey; /* Placeholder */
+    background-color: var(--card-bg-color); /* Placeholder */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-radius: 5px;
     display: inline-block;

@@ -9,7 +9,7 @@ type Props = {
 
 export function Header({ notes, dispatch }: Props): React.ReactElement {
   return (
-    <div className="header">
+    <header>
       <button
         className="header-new-note"
         onClick={() => handleAddNote(dispatch)}
@@ -24,6 +24,6 @@ export function Header({ notes, dispatch }: Props): React.ReactElement {
       ) : (
         <></>
       )}
-    </div>
+    </header>
   );
 }
