@@ -45,7 +45,7 @@ export default function NoteCard({
                     title: e.target.value,
                   })
                 }
-                className="title-input"
+                className="card--title-input"
               />
             </label>
             <label>
@@ -58,12 +58,11 @@ export default function NoteCard({
                     content: e.target.value,
                   })
                 }
-                className="description-input"
+                className="card--desc-input"
               />
             </label>
           </form>
-          <hr></hr>
-          <div className="card-buttons">
+          <div className="card--buttons">
             <button
               onClick={() => {
                 if (noteIsValid(note)) {
@@ -89,10 +88,9 @@ export default function NoteCard({
       ) : (
         <>
           {/* <i>{note.id}</i> */}
-          <h1>{note.title}</h1>
-          <p>{note.content}</p>
-          <hr></hr>
-          <div className="card-buttons">
+          <h1 className="card--title">{note.title}</h1>
+          <p className="card--desc">{note.content}</p>
+          <div className="card--buttons">
             <button
               onClick={() => {
                 setPrevNote(note);

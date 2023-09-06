@@ -1,16 +1,31 @@
 .card {
-    list-style-type: none;
-    width: fit-content; /* Placeholder */
-    height: fit-content; /* Placeholder */
-    margin: var(--default-padding);
-    padding: var(--default-padding);
-    background-color: grey; /* Placeholder */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    border-radius: 5px;
-    display: inline-block;
+    background-color: var(--card-bg-color);
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    
+    row-gap: 10px;
 }
 
-.card-buttons {
+.card--title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card--desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.card--buttons {
     display: flex;
     justify-content: space-evenly;
+}
+
+.card--buttons > button {
+    padding: 1rem;
 }

@@ -9,21 +9,21 @@ type Props = {
 
 export function Header({ notes, dispatch }: Props): React.ReactElement {
   return (
-    <div className="header">
-      <button
-        className="header-new-note"
-        onClick={() => handleAddNote(dispatch)}
-      >
+    <header>
+      <button className="header--item" onClick={() => handleAddNote(dispatch)}>
         New Note
       </button>
       {notes.length > 0 ? (
-        <button onClick={() => handleDeleteAllNotes(dispatch)}>
+        <button
+          className="header--item"
+          onClick={() => handleDeleteAllNotes(dispatch)}
+        >
           {" "}
           Clear All
         </button>
       ) : (
         <></>
       )}
-    </div>
+    </header>
   );
 }

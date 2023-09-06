@@ -1,12 +1,13 @@
-.header {
-    padding: var(--default-padding);
-    text-align: left;
+header {
+    max-width: 450px;
+    margin: 0 auto;
+  
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-.header-new-note {
-    margin-right: 0.75rem;
-}
-
-button {
-    display: inline-block;
+.header--item {
+    padding: 0.8rem;
+    margin: 0.8rem;
 }
